@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CoffeeBean</title>
+        <link href="./styles.css" rel="stylesheet" />
+        <script defer src="/scripts/menu.js"></script>
+        <script defer src="/scripts/products.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <header id="header">
+            <div class="logo-wrapper">
+                <img class="logo" src="./assets/logo.png" alt="Logo" />
+                <h4 class="name">CoffeeBean</h4>
+            </div>
+            <nav id="menu" class="navigation">
+                <a class="link" href="#">Homepage</a>
+                <a class="link" href="#">Blog</a>
+                <a class="link" href="#">Products</a>
+                <a class="link cart" href="#">
+                    <i class="fa-solid fa-shopping-basket"></i>
+                    Cart<span id="cart-counter">0</span>
+                </a>
+                <a class="link favorites" href="#">
+                    <i class="fa-regular fa-heart"></i>
+                    <span id="favorites-counter">0</span>
+                </a>
+                <a class="link button" href="#">
+                    <i class="fa-solid fa-user-plus"></i>Register</a
+                >
+                <a class="link button" href="#">
+                    <i class="fa-solid fa-right-to-bracket"></i>Login</a
+                >
+            </nav>
+            <div id="toggle-mobile-menu" class="mobile-menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+        <section id="hero">
+            <img class="hero-image" src="./assets/images/banner.jpg" />
+            <div class="overlay">
+                <div class="description-wrapper">
+                    <h1 class="title">
+                        CoffeeBean <br />
+                        Coffee for everyone
+                    </h1>
+                    <p class="description">
+                        Coffee is a beverage prepared from roasted coffee beans.
+                        Darkly colored, bitter, and slightly acidic, coffee has
+                        a stimulating effect on humans, primarily due to its
+                        caffeine content.
+                    </p>
+                    <a class="cta-button" href="#">Explore now</a>
+                </div>
+            </div>
+        </section>
+        <section id="products-list"></section>
+    </body>
+</html>
