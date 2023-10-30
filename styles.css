@@ -172,7 +172,8 @@ body {
     background-color: var(--coffe-color-2);
     border: 1px solid var(--color-dark);
     z-index: 1000;
-
+    width: 200px;
+    height: 200px;
 }
 
 @media screen and (max-width: 850px) {

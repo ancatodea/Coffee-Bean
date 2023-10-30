@@ -1,5 +1,6 @@
 const cartCounterElement = document.getElementById("cart-counter");
 const favoritesCounterElement = document.getElementById("favorites-counter");
+const cartElement = document.getElementById('cart')
 const cart = [];
 const favourites = [];
 const products = [
@@ -194,6 +195,15 @@ function addProductToFavourites(productId) {
     updateFavouritesCounter();
 }
 
+function createQuantityElement() {
+    const quantityElement = document.createElement('div');
+    cart.forEach(product => {
+        quantityElement.innerHTML = `Quantity: ${product.quantity}`;
+    })
+
+    return quantityElement;
+}
+
 function updateFavouritesCounter() {
     favoritesCounterElement.innerText = favourites.length;
 }
@@ -205,16 +215,22 @@ function createCartList() {
     cart.forEach((product) => {
         cartList.appendChild(createProductImage(product.image, product.name));
         cartList.appendChild(createProductName(product.name));
+        cartList.appendChild(createQuantityElement());
     });
-    console.log(cartList);
+    // console.log(cartList);
+
+    cartElement.appendChild(cartList);
     return cartList;
 }
 
-
 function showCartList() {
-    cartCounterElement.addEventListener("click", () => {
+    cartElement.addEventListener("click", () => {
         createCartList();
     });
 }
 
 showCartList();
+// function checkIfClicked() {
+    
+// } 
+
