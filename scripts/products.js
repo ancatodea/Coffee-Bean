@@ -1,6 +1,6 @@
 const cartCounterElement = document.getElementById("cart-counter");
 const favoritesCounterElement = document.getElementById("favorites-counter");
-const cartElement = document.getElementById('cart')
+const cartElement = document.getElementById("cart");
 const cart = [];
 const favourites = [];
 const products = [
@@ -196,10 +196,10 @@ function addProductToFavourites(productId) {
 }
 
 function createQuantityElement() {
-    const quantityElement = document.createElement('div');
-    cart.forEach(product => {
+    const quantityElement = document.createElement("div");
+    cart.forEach((product) => {
         quantityElement.innerHTML = `Quantity: ${product.quantity}`;
-    })
+    });
 
     return quantityElement;
 }
@@ -211,26 +211,39 @@ function updateFavouritesCounter() {
 function createCartList() {
     const cartList = document.createElement("div");
     cartList.classList.add("cart-list-container");
+    cartList.appendChild(createCartListCloseButton());
 
     cart.forEach((product) => {
         cartList.appendChild(createProductImage(product.image, product.name));
         cartList.appendChild(createProductName(product.name));
         cartList.appendChild(createQuantityElement());
     });
-    // console.log(cartList);
+    console.log(cartList);
 
     cartElement.appendChild(cartList);
     return cartList;
 }
 
+// const cartListElement = createCartList();
+
+function createCartListCloseButton() {
+    const cartListCloseButton = document.createElement("a");
+    cartListCloseButton.classList.add("cart-list-close-button");
+    cartListCloseButton.innerHTML = ' <i class="fa-solid fa-xmark"></i> ';
+
+    cartListCloseButton.addEventListener("click", () => {
+        cartListContainer.style.visibility = 'hidden';
+    });
+    return cartListCloseButton;
+}
+
+
 function showCartList() {
+    cartListContainer.style.visibility = "hidden";
+
     cartElement.addEventListener("click", () => {
-        createCartList();
+        cartListContainer.style.visibility = "visible";
     });
 }
 
 showCartList();
-// function checkIfClicked() {
-    
-// } 
-
