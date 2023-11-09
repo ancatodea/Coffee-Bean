@@ -143,10 +143,13 @@ function addProductToCart(productId) {
             image: productDetails.image,
             quantity: 1,
         });
+
+        cartListElement.appendChild(createProductImage(productDetails.image, productDetails.name));
+        cartListElement.appendChild(createProductName(productDetails.name));
     }
 
     updateCartCounter();
-    console.log(cart);
+    // console.log(cart);
 }
 
 function getProductDetails(productId) {
@@ -195,14 +198,14 @@ function addProductToFavourites(productId) {
     updateFavouritesCounter();
 }
 
-function createQuantityElement() {
-    const quantityElement = document.createElement("div");
-    cart.forEach((product) => {
-        quantityElement.innerHTML = `Quantity: ${product.quantity}`;
-    });
+// function createQuantityElement() {
+//     const quantityElement = document.createElement("div");
+//     cart.forEach((product) => {
+//         quantityElement.innerHTML = `Quantity: ${product.quantity}`;
+//     });
 
-    return quantityElement;
-}
+//     return quantityElement;
+// }
 
 function updateFavouritesCounter() {
     favoritesCounterElement.innerText = favourites.length;
@@ -211,38 +214,40 @@ function updateFavouritesCounter() {
 function createCartList() {
     const cartList = document.createElement("div");
     cartList.classList.add("cart-list-container");
+    cartList.setAttribute('id', 'cart-list-container');
     cartList.appendChild(createCartListCloseButton());
 
-    cart.forEach((product) => {
-        cartList.appendChild(createProductImage(product.image, product.name));
-        cartList.appendChild(createProductName(product.name));
-        cartList.appendChild(createQuantityElement());
-    });
     console.log(cartList);
 
     cartElement.appendChild(cartList);
     return cartList;
 }
 
-// const cartListElement = createCartList();
+const cartListElement = createCartList();
+const cartListCloseButton = document.getElementById('cart-details-close-button')
+cartListCloseButton.addEventListener("click", () => {
+    const cartDetailsElement = document.getElementById('cart-list-container');
+    cartDetailsElement.style.display = 'none';
+});
 
 function createCartListCloseButton() {
     const cartListCloseButton = document.createElement("a");
     cartListCloseButton.classList.add("cart-list-close-button");
+    cartListCloseButton.setAttribute("id", "cart-details-close-button")
     cartListCloseButton.innerHTML = ' <i class="fa-solid fa-xmark"></i> ';
 
-    cartListCloseButton.addEventListener("click", () => {
-        cartListContainer.style.visibility = 'hidden';
-    });
+    
+    console.log(cartListCloseButton);
+
     return cartListCloseButton;
 }
 
 
 function showCartList() {
-    cartListContainer.style.visibility = "hidden";
+    cartListElement.style.display= "none";
 
     cartElement.addEventListener("click", () => {
-        cartListContainer.style.visibility = "visible";
+        cartListElement.style.display = "block";
     });
 }
 

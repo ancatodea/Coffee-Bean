@@ -169,6 +169,7 @@ body {
 }
 
 .cart-list-container {
+    position: absolute;
     background-color: var(--coffe-color-2);
     border: 1px solid var(--color-dark);
     z-index: 1000;
